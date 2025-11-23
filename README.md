@@ -1,6 +1,6 @@
-# Claude Code Logger
+# Claude Code Logger GLM
 
-A specialized HTTP/HTTPS proxy logger designed for analyzing and debugging [Claude Code](https://claude.ai/code) traffic with enhanced chat mode visualization.
+A specialized HTTP/HTTPS proxy logger designed for analyzing and debugging [Claude Code](https://claude.ai/code) traffic with enhanced chat mode visualization and GLM integration support.
 
 ## 🎯 Primary Purpose
 
@@ -18,7 +18,7 @@ Simply run these two commands in separate terminals:
 
 **Terminal 1 - Start the logger:**
 ```bash
-npx claude-code-logger start
+npx claude-code-logger-glm start
 ```
 
 **Terminal 2 - Start Claude Code with proxy:**
@@ -30,10 +30,14 @@ That's it! You'll now see a beautifully formatted log of all Claude Code interac
 
 For help and options:
 ```bash
-npx claude-code-logger start --help
+npx claude-code-logger-glm start --help
 ```
 
 ## ✨ Features
+
+### Latest Updates (v1.0.2)
+- **🔧 Base Path Support**: New `--base-path` option for custom API endpoint routing
+- **🎯 GLM Integration**: Updated package name for GLM compatibility
 
 ### Claude Code Specific
 - **🤖 Chat Mode**: Automatically enabled by default, shows only the conversation between you and Claude
@@ -66,6 +70,7 @@ Options:
   --debug                   Show debug messages for troubleshooting (default: false)
   --chat-mode               Show only chat conversation with live streaming (default: true)
   -v, --verbose             Show full prompts without truncation (default: false)
+  --base-path <path>        Base path for API endpoints (default: '')
 ```
 
 ## 🔍 Usage Examples
@@ -98,6 +103,9 @@ npm run dev -- start -h api.example.com --log-body --chat-mode=false
 
 # Debug mode for troubleshooting
 npm run dev -- start --debug --log-body --chat-mode=false
+
+# Use custom base path for API routing
+npm run dev -- start --base-path "/v1" -h api.example.com
 ```
 
 ## 📸 What You'll See
@@ -148,13 +156,13 @@ npm run lint
 
 ### Option 1: Use without installation (Recommended)
 ```bash
-npx claude-code-logger start
+npx claude-code-logger-glm start
 ```
 
 ### Option 2: Install globally
 ```bash
-npm install -g claude-code-logger
-claude-code-logger start
+npm install -g claude-code-logger-glm
+claude-code-logger-glm start
 ```
 
 ## 🤝 Contributing
