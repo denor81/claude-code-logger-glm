@@ -17,6 +17,7 @@ export interface ProxyServerOptions {
   debug?: boolean;
   chatMode?: boolean;
   verbose?: boolean;
+  basePath?: string;
 }
 
 interface SseEvent {
@@ -95,7 +96,7 @@ export class ProxyServer {
     const options: http.RequestOptions | https.RequestOptions = {
       hostname: this.options.remoteHost,
       port: this.options.remotePort,
-      path: req.url,
+      path: (this.options.basePath || '') + (req.url || '/'),
       method: req.method,
       headers: { ...req.headers }
     };

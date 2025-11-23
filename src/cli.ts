@@ -24,6 +24,7 @@ program
   .option('--debug', 'Show debug messages for troubleshooting', false)
   .option('--chat-mode', 'Show only chat conversation with live streaming', true)
   .option('-v, --verbose', 'Show full prompts without truncation', false)
+  .option('--base-path <path>', 'Base path for API endpoints', '')
   .action(async (options) => {
     try {
       const server = new ProxyServer({
@@ -36,7 +37,8 @@ program
         mergeSse: options.mergeSse,
         debug: options.debug,
         chatMode: options.chatMode,
-        verbose: options.verbose
+        verbose: options.verbose,
+        basePath: options.basePath
       });
 
       await server.start();
